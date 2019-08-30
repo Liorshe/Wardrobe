@@ -10,20 +10,26 @@
             android:id="@+id/shirt_recycler"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+    />
 
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pants_recycler"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+    />
 
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/shoes_recycler"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_width="match_parent"/>
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+    />
 
 </LinearLayout>

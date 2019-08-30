@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-     val toolbar: Toolbar = findViewById(R.id.toolbar)
-       setSupportActionBar(toolbar)
+//     val toolbar: Toolbar = findViewById(R.id.toolBar)
+//      setSupportActionBar(toolbar)
         val fab: FloatingActionButton = findViewById(R.id.fab)
        fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
        }
        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-       val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+//       val toggle = ActionBarDrawerToggle(
+//            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+//        )
+//        drawerLayout.addDrawerListener(toggle)
+//        toggle.syncState()
 
        navView.setNavigationItemSelectedListener(this)
 
@@ -70,13 +70,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
+            R.id.nav_shirt
+            -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_pants -> {
 
             }
-            R.id.nav_tools -> {
+            R.id.nav_shoes -> {
 
             }
             R.id.nav_share -> {

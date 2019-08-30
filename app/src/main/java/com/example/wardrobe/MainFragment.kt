@@ -10,8 +10,12 @@ import android.view.ViewGroup
 import android.widget.LinearLayout.HORIZONTAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wardrobe.models.Pants
 import com.example.wardrobe.models.Shirt
+import com.example.wardrobe.models.Shoes
+import com.example.wardrobe.recyclerAdapter.PantsRecyclerAdapter
 import com.example.wardrobe.recyclerAdapter.ShirtRecyclerAdapter
+import com.example.wardrobe.recyclerAdapter.ShoesRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -43,15 +47,34 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //adapters
-        val list = arrayListOf<Shirt>()
+        val listShirt = arrayListOf<Shirt>()
         for(i in 0 until 10){
-          list.add(Shirt("", i.toDouble(), "green", 56))
+          listShirt.add(Shirt("", i.toDouble(), "green", 56))
         }
 
         with(shirt_recycler){
-            adapter = ShirtRecyclerAdapter(activity!!, list)
+            adapter = ShirtRecyclerAdapter(activity!!, listShirt)
             layoutManager =LinearLayoutManager(activity!!, HORIZONTAL, false)
 
+        }
+
+        val listPants = arrayListOf<Pants>()
+        for (i in 0 until 10){
+            listPants.add(Pants("",i.toDouble(),"black",65))
+        }
+
+        with(pants_recycler){
+            adapter = PantsRecyclerAdapter(activity!!, listPants)
+            layoutManager = LinearLayoutManager(activity!!, HORIZONTAL, false)
+        }
+
+        val listShoes = arrayListOf<Shoes>()
+        for (i in 0 until 10 ){
+            listShoes.add(Shoes("",i.toDouble(), "red", 67))
+        }
+        with(shoes_recycler){
+            adapter = ShoesRecyclerAdapter(activity!!, listShoes)
+            layoutManager = LinearLayoutManager(activity!!, HORIZONTAL, false)
         }
 
     }
@@ -61,8 +84,8 @@ class MainFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(): MainFragment{
-         val nfragment = MainFragment()
-            return nfragment
+         val fragment = MainFragment()
+            return fragment
         }
 
     }
