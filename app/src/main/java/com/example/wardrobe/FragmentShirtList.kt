@@ -1,11 +1,21 @@
 package com.example.wardrobe
 
 
+import android.annotation.SuppressLint
+import android.graphics.drawable.ClipDrawable.HORIZONTAL
+import android.graphics.drawable.ClipDrawable.VERTICAL
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.HorizontalScrollView
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wardrobe.models.Shirt
+import com.example.wardrobe.recyclerAdapter.ShirtListAdapter
+import kotlinx.android.synthetic.main.fragment_shirt_list.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,16 +29,23 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentShirtList : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_shirt_list, container, false)
     }
 
+    @SuppressLint("WrongConstant")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val list = arrayListOf<Shirt>()
+        for (i in 0 until 10)
+            list.add(Shirt("", i.toDouble(), "blue", 78))
+
+        with(shirtList_recycler){
+            adapter = ShirtListAdapter(activity!!, list)
+            layoutManager = LinearLayoutManager(activity!!, LinearLayout.VERTICAL, false)
+        }
     }
 
 

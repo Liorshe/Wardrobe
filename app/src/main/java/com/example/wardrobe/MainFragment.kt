@@ -49,7 +49,7 @@ class MainFragment : Fragment() {
         //adapters
         val listShirt = arrayListOf<Shirt>()
         for(i in 0 until 10){
-          listShirt.add(Shirt("", i.toDouble(), "green", 56))
+            listShirt.add(Shirt("", i.toDouble(), "green", 56))
         }
 
         with(shirt_recycler){

@@ -6,30 +6,29 @@
               android:orientation="vertical"
               tools:context=".MainFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/shirt_recycler"
+
+<androidx.viewpager.widget.ViewPager
+        android:id="@+id/shirt_pager"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp">
+</androidx.viewpager.widget.ViewPager>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pants_pager"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_margin="8dp"
-    />
+            android:layout_margin="8dp">
+    </androidx.viewpager.widget.ViewPager>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/pants_recycler"
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/shoes_pager"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_margin="8dp"
-    />
+            android:layout_margin="8dp">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/shoes_recycler"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_margin="8dp"
-    />
-
-</LinearLayout>
+</androidx.viewpager.widget.ViewPager>
+   </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.wardrobe
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -64,14 +65,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    @SuppressLint("ResourceType")
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
                 // Handle the camera action
             }
-            R.id.nav_shirt
-            -> {
+            R.id.nav_shirt ->{
+                val fragmentShirtList = FragmentShirtList.newInstance()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.add(R.id.drawer_layout, fragmentShirtList).commit()
+
 
             }
             R.id.nav_pants -> {

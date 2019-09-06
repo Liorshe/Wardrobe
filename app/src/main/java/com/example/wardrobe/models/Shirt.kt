@@ -1,3 +1,3 @@
 package com.example.wardrobe.models
 
- data class Shirt(var name: String, var size: Double, var color: String,var imagePath: Int)
+ class Shirt(name: String,  size: Double,  color: String, imagePath: String) : Cloth(name ,size, color, imagePath)
