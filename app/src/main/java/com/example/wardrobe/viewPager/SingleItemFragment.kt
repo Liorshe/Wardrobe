@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.wardrobe.GlideApp
+import com.bumptech.glide.Glide
 import com.example.wardrobe.R
 import com.example.wardrobe.models.Cloth
 import com.example.wardrobe.models.Shirt
@@ -29,21 +29,14 @@ class SingleItemFragment : Fragment() {
         val view = inflater.inflate(R.layout.single_item_layout, container, false)
         val imageShirt = view.findViewById<ImageView>(R.id.picItem)
 
-        val args = arguments
-        GlideApp.with(imageShirt.context).load(R.mipmap.ic_launcher_image).into(imageShirt)
-
-
-
-
-
-
+//        val args = arguments
+       Glide.with(imageShirt.context).load("http://via.placeholder.com/300.png").into(imageShirt)
         return view
+    }
 
-        }
 
-
-    companion object{
-        fun newInstance (item: Cloth): SingleItemFragment{
+    companion object {
+        fun newInstance(item: Cloth): SingleItemFragment {
             val args = Bundle()
             args.putString("itemImagePath", item.imagePath)
 
@@ -52,13 +45,11 @@ class SingleItemFragment : Fragment() {
             return fragment
 
 
-
         }
 
 
-
     }
-    }
+}
 
 
 

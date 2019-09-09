@@ -3,17 +3,16 @@ package com.example.wardrobe.viewPager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.wardrobe.models.Shirt
+import com.example.wardrobe.models.Pants
 
-class ShirtPagerAdapter(fragmentManager: FragmentManager, var shirtList: ArrayList<Shirt>) :
+class PantsPagerAdapter(fragmentManager: FragmentManager, var pantsList: ArrayList<Pants>) :
     FragmentStatePagerAdapter(fragmentManager) {
 
-
     override fun getItem(position: Int): Fragment {
-        return SingleItemFragment.newInstance(shirtList[position])
+        return SingleItemFragment.newInstance(pantsList[position])
     }
 
     override fun getCount(): Int {
-       return shirtList.size
+      return pantsList.size
     }
 }

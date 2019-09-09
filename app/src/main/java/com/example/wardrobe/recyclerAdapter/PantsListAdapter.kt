@@ -8,32 +8,36 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wardrobe.GlideApp
 import com.example.wardrobe.R
 import com.example.wardrobe.models.Pants
+import org.w3c.dom.Text
 
-class PantsRecyclerAdapter(var ctx: Context, var list: ArrayList<Pants>) :
-    RecyclerView.Adapter<PantsRecyclerAdapter.PantsViewHolder>(){
+class PantsListAdapter(var ctx: Context, var list : ArrayList<Pants>):
+    RecyclerView.Adapter<PantsListAdapter.PantsListHolderView> (){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PantsViewHolder {
-        val layout = LayoutInflater.from(ctx).inflate(R.layout.single_item_layout, parent, false)
-        return PantsViewHolder(layout)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PantsListHolderView {
+        var layout = LayoutInflater.from(ctx).inflate(R.layout.single_item_layout2, parent, false)
+        return PantsListHolderView(layout)
+
     }
 
     override fun getItemCount(): Int {
-      return list.size
+        return list.size
+
     }
 
-    override fun onBindViewHolder(holder: PantsViewHolder, position: Int) {
-      val currentPants = list[position]
+    override fun onBindViewHolder(holder: PantsListHolderView, position: Int) {
+        val currentPants = list[position]
         holder.namePants.text = currentPants.name
-        holder.sizePants.text = currentPants.size.toString()
+        holder.sizePants.text= currentPants.size.toString()
         holder.colorPants.text = currentPants.color
-//        holder.picPants.imageAlpha= currentPants.imagePath
+
+        GlideApp.with(ctx).load(R.mipmap.ic_launcher_image).into(holder.picPants)
 
     }
 
-
-    inner class PantsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class PantsListHolderView(itemView: View): RecyclerView.ViewHolder(itemView){
         var namePants = itemView.findViewById<TextView>(R.id.nameItem1)
         var sizePants = itemView.findViewById<TextView>(R.id.sizeItem1)
         var colorPants = itemView.findViewById<TextView>(R.id.colorItem1)

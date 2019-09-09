@@ -34,6 +34,7 @@ class ShirtListAdapter(var ctx: Context, var list: ArrayList<Shirt>):
 
         GlideApp.with(ctx)
             .load(R.drawable.ic_menu_share)
+//            .load("http://via.placeholder.com/300.png")
             .into(holder.picShirt)
     }
 

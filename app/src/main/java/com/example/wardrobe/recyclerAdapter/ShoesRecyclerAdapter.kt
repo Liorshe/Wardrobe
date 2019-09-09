@@ -29,7 +29,7 @@ class ShoesRecyclerAdapter (var ctx: Context, var list: ArrayList<Shoes>) :
         holder.nameShoes.text = currentShoes.name
         holder.sizeShoes.text = currentShoes.size.toString()
         holder.colorShoes.text = currentShoes.color
-        holder.picShoes.imageAlpha = currentShoes.imagePath
+
     }
 
 

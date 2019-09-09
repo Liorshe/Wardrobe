@@ -5,12 +5,14 @@
              android:layout_height="match_parent"
               android:orientation="vertical"
              android:background="@android:color/white"
-             tools:context=".FragmentShirtList">
+             tools:context=".FragmentPantsList">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/shirtList_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"/>
+<androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pantsList_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+/>
+
 </LinearLayout>

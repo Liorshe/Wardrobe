@@ -1,7 +1,9 @@
 package com.example.wardrobe
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.view.GravityCompat
@@ -12,9 +14,19 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.content_main.*
 
+@Suppress("PLUGIN_WARNING")
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+
+    private var transaction = supportFragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,18 +40,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
        }
        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-//       val toggle = ActionBarDrawerToggle(
-//            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-//        )
-//        drawerLayout.addDrawerListener(toggle)
-//        toggle.syncState()
+////       val toggle = ActionBarDrawerToggle(
+////            this, drawerLayout, toolbar as Toolbar?, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+////        )
+////        drawerLayout.addDrawerListener(toggle)
+////        toggle.syncState()
+
+
 
        navView.setNavigationItemSelectedListener(this)
 
         val mainFragment = MainFragment.newInstance()
-
-        val trasaction = supportFragmentManager.beginTransaction()
-        trasaction.add(R.id.container, mainFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).commit()
     }
 
     override fun onBackPressed() {
@@ -65,21 +77,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    @SuppressLint("ResourceType")
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-                // Handle the camera action
+               val fragmenMain = MainFragment.newInstance()
+                transaction.add(R.id.container,fragmenMain).addToBackStack("").commit()
             }
             R.id.nav_shirt ->{
                 val fragmentShirtList = FragmentShirtList.newInstance()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.add(R.id.drawer_layout, fragmentShirtList).commit()
-
-
+                    transaction.add(R.id.container, fragmentShirtList).addToBackStack("").commit()
             }
             R.id.nav_pants -> {
+                val fragmentPantsList = FragmentPantsList.newInstance()
+                    transaction.add(R.id.container, fragmentPantsList).addToBackStack("").commit()
 
             }
             R.id.nav_shoes -> {
@@ -94,6 +106,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+        return false
     }
 }

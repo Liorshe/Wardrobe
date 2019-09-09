@@ -10,12 +10,16 @@ import android.view.ViewGroup
 import android.widget.LinearLayout.HORIZONTAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.wardrobe.models.Pants
 import com.example.wardrobe.models.Shirt
 import com.example.wardrobe.models.Shoes
 import com.example.wardrobe.recyclerAdapter.PantsRecyclerAdapter
 import com.example.wardrobe.recyclerAdapter.ShirtRecyclerAdapter
 import com.example.wardrobe.recyclerAdapter.ShoesRecyclerAdapter
+import com.example.wardrobe.viewPager.PantsPagerAdapter
+import com.example.wardrobe.viewPager.ShirtPagerAdapter
+import com.example.wardrobe.viewPager.ShoesPagerAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -35,10 +39,13 @@ private const val ARG_PARAM2 = "param2"
  */
 class MainFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private lateinit var viewPager: ViewPager
+    private lateinit var pagerAdapterShirt: ShirtPagerAdapter
+    private lateinit var pagerAdapterPants: PantsPagerAdapter
+    private lateinit var pagerAdapterShoes: ShoesPagerAdapter
+
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
@@ -48,45 +55,43 @@ class MainFragment : Fragment() {
 
         //adapters
         val listShirt = arrayListOf<Shirt>()
-        for(i in 0 until 10){
-            listShirt.add(Shirt("", i.toDouble(), "green", 56))
+        for (i in 0 until 10) {
+            listShirt.add(Shirt("", i.toDouble(), "green", ""))
         }
-
-        with(shirt_recycler){
-            adapter = ShirtRecyclerAdapter(activity!!, listShirt)
-            layoutManager =LinearLayoutManager(activity!!, HORIZONTAL, false)
-
+        with(shirt_pager) {
+            viewPager = view.findViewById(R.id.shirt_pager)
+            pagerAdapterShirt = ShirtPagerAdapter(fragmentManager!!, listShirt)
+            viewPager.adapter = pagerAdapterShirt
         }
 
         val listPants = arrayListOf<Pants>()
         for (i in 0 until 10){
-            listPants.add(Pants("",i.toDouble(),"black",65))
+            listPants.add(Pants("", i.toDouble(), "", ""))
         }
 
-        with(pants_recycler){
-            adapter = PantsRecyclerAdapter(activity!!, listPants)
-            layoutManager = LinearLayoutManager(activity!!, HORIZONTAL, false)
+        with(pants_pager){
+            viewPager = view.findViewById(R.id.pants_pager)
+            pagerAdapterPants = PantsPagerAdapter(fragmentManager!!, listPants)
+            viewPager.adapter = pagerAdapterPants
         }
 
         val listShoes = arrayListOf<Shoes>()
         for (i in 0 until 10 ){
-            listShoes.add(Shoes("",i.toDouble(), "red", 67))
-        }
-        with(shoes_recycler){
-            adapter = ShoesRecyclerAdapter(activity!!, listShoes)
-            layoutManager = LinearLayoutManager(activity!!, HORIZONTAL, false)
+            listShoes.add(Shoes("", i.toDouble(), "", ""))
         }
 
+        with(shoes_pager){
+            viewPager = view.findViewById(R.id.shoes_pager)
+            pagerAdapterShoes = ShoesPagerAdapter(fragmentManager!!, listShoes)
+            viewPager.adapter = pagerAdapterShoes
+
+        }
     }
 
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance(): MainFragment{
-         val fragment = MainFragment()
+    companion object{
+        fun newInstance(): MainFragment {
+            val fragment = MainFragment()
             return fragment
         }
-
     }
 }
