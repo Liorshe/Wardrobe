@@ -20,6 +20,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 @Suppress("PLUGIN_WARNING")
@@ -31,24 +32,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-//     val toolbar: Toolbar = findViewById(R.id.toolBar)
-//      setSupportActionBar(toolbar)
+        val toolBar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolBar)
+
+
         val fab: FloatingActionButton = findViewById(R.id.fab)
-       fab.setOnClickListener { view ->
+        fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-       }
-       val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        }
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-////       val toggle = ActionBarDrawerToggle(
-////            this, drawerLayout, toolbar as Toolbar?, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-////        )
-////        drawerLayout.addDrawerListener(toggle)
-////        toggle.syncState()
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
 
 
-       navView.setNavigationItemSelectedListener(this)
+        navView.setNavigationItemSelectedListener(this)
 
         val mainFragment = MainFragment.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).commit()
@@ -82,19 +85,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-               val fragmenMain = MainFragment.newInstance()
-                transaction.add(R.id.container,fragmenMain).addToBackStack("").commit()
+               val fragmentMain = MainFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.container,fragmentMain).commit()
             }
             R.id.nav_shirt ->{
                 val fragmentShirtList = FragmentShirtList.newInstance()
-                    transaction.add(R.id.container, fragmentShirtList).addToBackStack("").commit()
+                supportFragmentManager.beginTransaction().add(R.id.container, fragmentShirtList).addToBackStack("").commit()
             }
             R.id.nav_pants -> {
                 val fragmentPantsList = FragmentPantsList.newInstance()
-                    transaction.add(R.id.container, fragmentPantsList).addToBackStack("").commit()
+                supportFragmentManager.beginTransaction().add(R.id.container, fragmentPantsList).addToBackStack("").commit()
 
             }
             R.id.nav_shoes -> {
+                val fragmentShoesList = FragmentShoesList.newInstance()
+                supportFragmentManager.beginTransaction().add(R.id.container, fragmentShoesList).addToBackStack("").commit()
 
             }
             R.id.nav_share -> {

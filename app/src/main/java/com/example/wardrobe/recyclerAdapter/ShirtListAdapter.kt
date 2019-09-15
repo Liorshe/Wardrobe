@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wardrobe.GlideApp
+import com.bumptech.glide.Glide
 import com.example.wardrobe.R
 import com.example.wardrobe.models.Shirt
 
@@ -32,9 +32,8 @@ class ShirtListAdapter(var ctx: Context, var list: ArrayList<Shirt>):
         holder.colorShirt.text = currentShirt.color
 //        holder.picShirt.imageAlpha= currentShirt.imagePath
 
-        GlideApp.with(ctx)
-            .load(R.drawable.ic_menu_share)
-//            .load("http://via.placeholder.com/300.png")
+        Glide.with(ctx)
+            .load("http://pluspng.com/img-png/tshirt-png-t-shirt-png-image-873.png")
             .into(holder.picShirt)
     }
 

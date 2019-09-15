@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wardrobe.GlideApp
+import com.bumptech.glide.Glide
 import com.example.wardrobe.R
 import com.example.wardrobe.models.Pants
 import org.w3c.dom.Text
@@ -33,7 +33,7 @@ class PantsListAdapter(var ctx: Context, var list : ArrayList<Pants>):
         holder.sizePants.text= currentPants.size.toString()
         holder.colorPants.text = currentPants.color
 
-        GlideApp.with(ctx).load(R.mipmap.ic_launcher_image).into(holder.picPants)
+        Glide.with(ctx).load(R.mipmap.ic_launcher_image).into(holder.picPants)
 
     }
 

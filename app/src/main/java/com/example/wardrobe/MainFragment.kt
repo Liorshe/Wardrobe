@@ -20,6 +20,7 @@ import com.example.wardrobe.recyclerAdapter.ShoesRecyclerAdapter
 import com.example.wardrobe.viewPager.PantsPagerAdapter
 import com.example.wardrobe.viewPager.ShirtPagerAdapter
 import com.example.wardrobe.viewPager.ShoesPagerAdapter
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -38,6 +39,9 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class MainFragment : Fragment() {
+
+
+
 
     private lateinit var viewPager: ViewPager
     private lateinit var pagerAdapterShirt: ShirtPagerAdapter
@@ -80,6 +84,7 @@ class MainFragment : Fragment() {
             listShoes.add(Shoes("", i.toDouble(), "", ""))
         }
 
+        FirebaseDatabase.getInstance().reference.push()
         with(shoes_pager){
             viewPager = view.findViewById(R.id.shoes_pager)
             pagerAdapterShoes = ShoesPagerAdapter(fragmentManager!!, listShoes)
