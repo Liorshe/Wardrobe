@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="item">
+        <item >חולצה</item>
+        <item >מכנסיים</item>
+        <item >נעליים</item>
+    </string-array>
+
+    <string-array name="size">
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+
+</resources>

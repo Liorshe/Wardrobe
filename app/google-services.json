@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "354987945038",
-    "firebase_url": "https://wardrobe-32103.firebaseio.com",
-    "project_id": "wardrobe-32103",
-    "storage_bucket": "wardrobe-32103.appspot.com"
+    "project_number": "704941522640",
+    "firebase_url": "https://mywardrobe-8b579.firebaseio.com",
+    "project_id": "mywardrobe-8b579",
+    "storage_bucket": "mywardrobe-8b579.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:354987945038:android:82bb1e069279c27830e71f",
+        "mobilesdk_app_id": "1:704941522640:android:467f9b7a435ac0f96ae8d5",
         "android_client_info": {
-          "package_name": "com.example.wardrobe"
+          "package_name": "com.liorapp.wardrobe"
         }
       },
       "oauth_client": [
         {
-          "client_id": "354987945038-kpj3v7aqj9ate8ud0o45jbkq89gehp72.apps.googleusercontent.com",
+          "client_id": "704941522640-rhtg3mt6msml7hr1rha73bmg47b41ebj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDdkR3cGnpanLsJaEA89UdlZtxueS0G3bo"
+          "current_key": "AIzaSyCEPVfbgL1MxQeaEG4-CX_ixtCjEZq2-HM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "354987945038-kpj3v7aqj9ate8ud0o45jbkq89gehp72.apps.googleusercontent.com",
+              "client_id": "704941522640-rhtg3mt6msml7hr1rha73bmg47b41ebj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
